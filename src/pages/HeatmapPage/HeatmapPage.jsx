@@ -1,7 +1,8 @@
 import React from 'react'
 import { Form } from '../../components/Form'
+import { Map } from '../../components/Map'
 import { validationType } from '../../utils/formValidation'
-import './WelcomePage.scss'
+import './HeatmapPage.scss'
 
 const WelcomePage = () => {
   const formData = {
@@ -63,6 +64,7 @@ const WelcomePage = () => {
   return (
     <main className="page page-welcome">
       <Form formData={formData} />
+      <Map />
     </main>
   )
 }
