@@ -20,7 +20,7 @@ export const getResidencyError = (error) => ({
   error
 })
 
-export const getResidency = () => (dispatch) => {
+export const getResidencyAction = () => (dispatch) => {
   dispatch(getResidencyStart())
 
   return getResidenceAPI()
