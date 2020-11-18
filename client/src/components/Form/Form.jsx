@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { map, reduce, forIn, isEmpty } from 'lodash'
+import { map, reduce } from 'lodash'
 import { InputField } from '../InputField'
-import { postResidenceAPI } from '../../api/residency'
 import { validateFormField, hasFormError } from '../../utils/formValidation'
 
-const Form = ({ formData, postAPI }) => {
+const Form = ({ formData, postAPI, onSuccess }) => {
   const [formValues, setFormValues] = useState(formData)
+  const [isPosting, setIsPosting] = useState(false)
+  const [postMessage, setPostMessage] = useState({ type: '', value: '' })
 
   const getFormValues = () => {
     return reduce(
@@ -20,19 +21,35 @@ const Form = ({ formData, postAPI }) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+    setPostMessage({ ...postMessage, value: '' })
 
     if (hasFormError(formValues, setFormValues)) {
       return
     }
 
     const data = getFormValues()
+
+    setIsPosting(true)
+
+    postAPI(data)
+      .then(() => {
+        setPostMessage({ type: 'success', value: 'Dados salvos com sucesso' })
+        setIsPosting(false)
+        onSuccess()
+      })
+      .catch(() => {
+        setPostMessage({
+          type: 'error',
+          value: 'Houve um erro ao salvar os dados '
+        })
+        setIsPosting(false)
+      })
   }
 
   const onChange = (e) => {
     e.preventDefault()
 
     const { name, value } = e.target
-    debugger
 
     const error = validateFormField(value, formValues[name].validations)
 
@@ -47,14 +64,19 @@ const Form = ({ formData, postAPI }) => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2>Form Title</h2>
-      <div>
+    <form className="form" onSubmit={onSubmit}>
+      <h2 className="form__title">Cadastrar nova residencia</h2>
+      <div className="form__fields">
         {map(formValues, (value, key) => (
           <InputField key={key} {...value} onChange={onChange} />
         ))}
       </div>
-      <button type="submit">submit</button>
+      <button className="form__submit-btn" disabled={isPosting} type="submit">
+        submit
+      </button>
+      {postMessage.value !== '' && (
+        <p className={`form__${postMessage.type}-msg`}>{postMessage.value}</p>
+      )}
     </form>
   )
 }
