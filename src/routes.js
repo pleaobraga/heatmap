@@ -4,22 +4,12 @@ import DynamicImport from './components/DynamicImport'
 import ErrorPage from './pages/ErrorPage'
 import Loading from './components/Loading'
 
-const WelcomePage = () => (
+const HeatmapPage = () => (
   <DynamicImport
     loadComponent={() =>
-      import(/*  webpackChunkName: "welcomePage" */ './pages/WelcomePage')
+      import(/*  webpackChunkName: "heatmapPage" */ './pages/HeatmapPage')
     }
     ErrorComponent={ErrorPage}
-    LoadingComponent={() => <Loading />}
-  />
-)
-
-const ContentPage = () => (
-  <DynamicImport
-    loadComponent={() =>
-      import(/*  webpackChunkName: "contentPage" */ './pages/ContentPage')
-    }
-    ErrorComponent={() => ErrorPage}
     LoadingComponent={() => <Loading />}
   />
 )
@@ -29,8 +19,7 @@ const Routes = () => {
     <BrowserRouter>
       <Suspense fallback={<ErrorPage />}>
         <Switch>
-          <Route path="/content" component={ContentPage} />
-          <Route exact path="/" component={WelcomePage} />
+          <Route exact path="/" component={HeatmapPage} />
           <Route component={ErrorPage} />
         </Switch>
       </Suspense>
