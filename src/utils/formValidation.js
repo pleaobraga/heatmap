@@ -48,7 +48,6 @@ export const formValidations = (value, validation) => {
       return {}
 
     case validationType.COORDINATE: {
-      debugger
       const regex = new RegExp(/^-?\d{1,3}(\.\d{0,15})?$/, 'gm')
 
       if (!regex.test(value)) {
