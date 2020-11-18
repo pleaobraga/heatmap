@@ -1,13 +1,8 @@
 /* eslint-disable no-undef */
 import React from 'react'
-import {
-  GoogleMap,
-  useJsApiLoader,
-  HeatmapLayer,
-  InfoBox
-} from '@react-google-maps/api'
+import { GoogleMap, useJsApiLoader, HeatmapLayer } from '@react-google-maps/api'
 
-function Heatmap() {
+const Heatmap = ({ data, heightAttribute }) => {
   const mapContainerStyle = {
     height: '400px',
     width: '800px'
@@ -25,39 +20,22 @@ function Heatmap() {
     libraries: libs
   })
 
-  const onCLick = (e) => {
-    console.log(e)
-  }
-
-  const InfoBoxOptions = { closeBoxURL: '', enableEventPropagation: true }
-
   const renderMap = () => {
+    const heatmapData = data.map((a) => {
+      return {
+        location: new google.maps.LatLng(a.lat, a.lng),
+        weight: a[heightAttribute]
+      }
+    })
+
     return (
       <GoogleMap
         id="heatmap-layer"
         mapContainerStyle={mapContainerStyle}
         zoom={13}
         center={center}
-        onClick={onCLick}
       >
-        <HeatmapLayer
-          data={[
-            new google.maps.LatLng(37.782, -122.447),
-            new google.maps.LatLng(37.782, -122.445),
-            new google.maps.LatLng(37.782, -122.443),
-            new google.maps.LatLng(37.782, -122.441),
-            new google.maps.LatLng(37.782, -122.439),
-            new google.maps.LatLng(37.782, -122.437),
-            new google.maps.LatLng(37.782, -122.435),
-            new google.maps.LatLng(37.785, -122.447),
-            new google.maps.LatLng(37.785, -122.445),
-            new google.maps.LatLng(37.785, -122.443),
-            new google.maps.LatLng(37.785, -122.441),
-            new google.maps.LatLng(37.785, -122.439),
-            new google.maps.LatLng(37.785, -122.437),
-            new google.maps.LatLng(37.785, -122.435)
-          ]}
-        />
+        <HeatmapLayer options={{ radius: 15 }} data={heatmapData} />
       </GoogleMap>
     )
   }
