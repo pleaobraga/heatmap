@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux'
-import heatmap from './Heatmap'
+import residency from './Residency'
 
-export default combineReducers({ heatmap })
+export default combineReducers({ residency })

@@ -1,17 +1,16 @@
-import { types } from './HeatmapActions'
-
+import { types } from './ResidencyActions'
 const initialState = {
   data: [],
   isFetching: false,
   error: {}
 }
 
-const heatmap = (state = initialState, action) => {
+const residency = (state = initialState, action) => {
   switch (action.type) {
-    case types.GET_HEATMAP_DATA:
+    case types.GET_RESIDENCY_DATA:
       return { ...state, isFetching: true }
 
-    case types.GET_HEATMAP_SUCCESS:
+    case types.GET_RESIDENCY_SUCCESS:
       return {
         ...state,
         data: action.data,
@@ -19,7 +18,7 @@ const heatmap = (state = initialState, action) => {
         errorContent: {}
       }
 
-    case types.GET_HEATMAP_ERROR:
+    case types.GET_RESIDENCY_ERROR:
       return {
         ...state,
         isFetching: false,
@@ -31,4 +30,4 @@ const heatmap = (state = initialState, action) => {
   }
 }
 
-export default heatmap
+export default residency
