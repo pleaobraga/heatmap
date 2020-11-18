@@ -1,0 +1,12 @@
+{
+  "residency": [
+    {
+      "id": 0,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37,
+      "lng": 48,
+      "residents": 4
+    }
+  ]
+}

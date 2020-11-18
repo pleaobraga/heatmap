@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Form } from '../../components/Form'
 import { Map } from '../../components/Map'
 import { validationType } from '../../utils/formValidation'
+import { getResidency } from '../../redux/Residency'
 import './HeatmapPage.scss'
 
 const WelcomePage = () => {
+  const dispatch = useDispatch()
+
+  const getResidencyRequest = useCallback(() => dispatch(getResidency()), [
+    dispatch
+  ])
+
+  useEffect(() => {
+    getResidencyRequest()
+  }, [getResidencyRequest])
+
   const formData = {
     cep: {
       name: 'cep',

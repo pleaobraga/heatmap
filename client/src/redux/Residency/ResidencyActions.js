@@ -1,4 +1,4 @@
-import { simulateRequest } from '../../utils/utils'
+import { getResidenceAPI } from '../../api/residency'
 
 export const types = {
   GET_RESIDENCY_DATA: 'residency/get_residency_data',
@@ -23,12 +23,10 @@ export const getResidencyError = (error) => ({
 export const getResidency = () => (dispatch) => {
   dispatch(getResidencyStart())
 
-  return simulateRequest({ title: 'Content', text: 'content text' })
+  return getResidenceAPI()
     .then((response) => {
       dispatch(getResidencySuccess(response.data))
       return response.data
     })
     .catch((error) => getResidencyError(error))
 }
-
-
