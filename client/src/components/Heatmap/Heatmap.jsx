@@ -4,8 +4,8 @@ import { GoogleMap, useJsApiLoader, HeatmapLayer } from '@react-google-maps/api'
 
 const Heatmap = ({ data, heightAttribute }) => {
   const mapContainerStyle = {
-    height: '400px',
-    width: '800px'
+    height: '100%',
+    width: '100%'
   }
 
   const center = {

@@ -20,13 +20,19 @@ const HeatmapPage = () => {
   }, [getResidency])
 
   return (
-    <main className="page page-welcome">
-      <Form
-        formData={formData}
-        postAPI={postResidenceAPI}
-        onSuccess={getResidency}
-      />
-      <Heatmap data={residency} heightAttribute="residents" />
+    <main className="page page-heatmap">
+      <section className="page-heatmap__section page-heatmap__section--form">
+        <h1 className="page-heatmap__title">Mapa de Calor</h1>
+        <Form
+          formData={formData}
+          postAPI={postResidenceAPI}
+          onSuccess={getResidency}
+          className="page-heatmap__form"
+        />
+      </section>
+      <section className="page-heatmap__section page-heatmap__section--map">
+        <Heatmap data={residency} heightAttribute="residents" />
+      </section>
     </main>
   )
 }

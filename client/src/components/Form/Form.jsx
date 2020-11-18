@@ -3,7 +3,7 @@ import { map, reduce } from 'lodash'
 import { InputField } from '../InputField'
 import { validateFormField, hasFormError } from '../../utils/formValidation'
 
-const Form = ({ formData, postAPI, onSuccess }) => {
+const Form = ({ formData, postAPI, onSuccess, className }) => {
   const [formValues, setFormValues] = useState(formData)
   const [isPosting, setIsPosting] = useState(false)
   const [postMessage, setPostMessage] = useState({ type: '', value: '' })
@@ -64,7 +64,7 @@ const Form = ({ formData, postAPI, onSuccess }) => {
   }
 
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form className={`form ${className}`} onSubmit={onSubmit}>
       <h2 className="form__title">Cadastrar nova residencia</h2>
       <div className="form__fields">
         {map(formValues, (value, key) => (
@@ -82,7 +82,8 @@ const Form = ({ formData, postAPI, onSuccess }) => {
 }
 
 Form.defaulProps = {
-  formData: {}
+  formData: {},
+  className: ''
 }
 
 export default Form
