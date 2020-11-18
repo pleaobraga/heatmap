@@ -1,4 +1,4 @@
-import { isNil, isEmpty } from 'lodash'
+import { isNil, isEmpty, forIn } from 'lodash'
 
 export const validationType = {
   REQUIRED: 'REQUIRED',
@@ -65,7 +65,7 @@ export const formValidations = (value, validation) => {
   }
 }
 
-export const validateForm = (value, validations) => {
+export const validateFormField = (value, validations) => {
   for (let i = 0; i < validations.length; i++) {
     const error = formValidations(value, validations[i])
 
@@ -75,4 +75,27 @@ export const validateForm = (value, validations) => {
   }
 
   return {}
+}
+
+export const hasFormError = (formValues, setFormValues) => {
+  let hasError = false
+  const newFormValues = { ...formValues }
+
+  forIn(formValues, ({ value, validations, name }) => {
+    const error = validateFormField(value, validations)
+
+    if (!isEmpty(error)) {
+      hasError = true
+
+      newFormValues[name].error = { ...error }
+    }
+  })
+
+  if (hasError) {
+    setFormValues({
+      ...newFormValues
+    })
+  }
+
+  return hasError
 }

@@ -1,21 +1,40 @@
 import React, { useState } from 'react'
-import { map } from 'lodash'
+import { map, reduce, forIn, isEmpty } from 'lodash'
 import { InputField } from '../InputField'
-import { validateForm } from '../../utils/formValidation'
+import { postResidenceAPI } from '../../api/residency'
+import { validateFormField, hasFormError } from '../../utils/formValidation'
 
-const Form = ({ formData }) => {
+const Form = ({ formData, postAPI }) => {
   const [formValues, setFormValues] = useState(formData)
+
+  const getFormValues = () => {
+    return reduce(
+      formValues,
+      (result, { value }, key) => {
+        result[key] = value
+        return result
+      },
+      {}
+    )
+  }
 
   const onSubmit = (e) => {
     e.preventDefault()
+
+    if (hasFormError(formValues, setFormValues)) {
+      return
+    }
+
+    const data = getFormValues()
   }
 
   const onChange = (e) => {
     e.preventDefault()
 
     const { name, value } = e.target
+    debugger
 
-    const error = validateForm(value, formValues[name].validations)
+    const error = validateFormField(value, formValues[name].validations)
 
     setFormValues({
       ...formValues,

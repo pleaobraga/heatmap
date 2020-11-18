@@ -17,7 +17,10 @@ export const formData = {
     label: 'Número',
     value: '',
     type: 'number',
-    validations: [validationType.REQUIRED],
+    validations: [
+      { name: validationType.REQUIRED },
+      { name: validationType.MIN, value: 1 }
+    ],
     error: {}
   },
   lat: {

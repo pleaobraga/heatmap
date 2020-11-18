@@ -7,3 +7,6 @@ const headers = {
 }
 
 export const getResidenceAPI = () => axios.get(RESIDENCY_API_URL, headers)
+
+export const postResidenceAPI = (data) =>
+  axios.post(RESIDENCY_API_URL, data, headers)
