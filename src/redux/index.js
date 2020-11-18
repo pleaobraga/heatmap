@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux'
-import content from './ContentReducer'
+import heatmap from './Heatmap'
 
-export default combineReducers({ content })
+export default combineReducers({ heatmap })
