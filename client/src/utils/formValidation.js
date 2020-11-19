@@ -2,7 +2,6 @@ import { isNil, isEmpty, forIn } from 'lodash'
 
 export const validationType = {
   REQUIRED: 'REQUIRED',
-  NUMBER: 'NUMBER',
   MAX: 'MAX',
   MIN: 'MIN',
   COORDINATE: 'COORDINATE'
@@ -16,16 +15,6 @@ export const formValidations = (value, validation) => {
       }
 
       return {}
-
-    case validationType.NUMBER: {
-      const regex = new RegExp(/^\\d+$/, 'gm')
-
-      if (regex.test(value)) {
-        return { hasError: true, message: 'Digite apenas números' }
-      }
-
-      return {}
-    }
 
     case validationType.MAX:
       if (value > validation.value) {

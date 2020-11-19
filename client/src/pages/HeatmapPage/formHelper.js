@@ -6,10 +6,7 @@ export const formData = {
     label: 'CEP',
     value: '',
     type: 'number',
-    validations: [
-      { name: validationType.REQUIRED },
-      { name: validationType.NUMBER }
-    ],
+    validations: [{ name: validationType.REQUIRED }],
     error: {}
   },
   number: {
