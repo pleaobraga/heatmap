@@ -3,6 +3,14 @@
 .input-field {
   margin-bottom: 1.3rem;
 
+  &--error {
+    color: red;
+
+    .input-field__input {
+      border-color: red;
+    }
+  }
+
   &__label {
     font-size: 2rem;
 
