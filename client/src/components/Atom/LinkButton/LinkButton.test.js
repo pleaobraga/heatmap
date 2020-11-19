@@ -8,7 +8,7 @@ describe('LinkButton', () => {
   const wrapper = mount(
     <LinkButton
       className="test"
-      handleCLick={handleCLick}
+      handleClick={handleCLick}
       href="/"
       text="test"
     />
