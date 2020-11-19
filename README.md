@@ -29,7 +29,7 @@ utilize o comando abaixo para instalar o json server
 npm install -g json-server
 ```
 
-para maiores informações acesse o link do repositório [link do repositorio](https://github.com/typicode/json-server)
+para maiores informações acesse o [link do repositorio](https://github.com/typicode/json-server)
 
 ### Iniciar o servidor
 
