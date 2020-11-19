@@ -10,7 +10,7 @@ export const getResidencyStart = () => ({
   type: types.GET_RESIDENCY_DATA
 })
 
-export const getResidencySuccess = (data) => ({
+export const getResidencySuccess = ({ data }) => ({
   type: types.GET_RESIDENCY_SUCCESS,
   data
 })
@@ -25,7 +25,7 @@ export const getResidencyAction = () => (dispatch) => {
 
   return getResidenceAPI()
     .then((response) => {
-      dispatch(getResidencySuccess(response.data))
+      dispatch(getResidencySuccess(response))
       return response.data
     })
     .catch(() => {
