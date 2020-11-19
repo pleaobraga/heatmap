@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './InputField.scss'
 
 const InputField = ({
@@ -16,7 +17,7 @@ const InputField = ({
     <div
       className={`input-field ${className} ${hasError && 'input-field--error'}`}
     >
-      <label className="input-field__label">{label}</label>
+      {label && <label className="input-field__label">{label}</label>}
       <input
         className="input-field__input"
         name={name}
@@ -29,6 +30,16 @@ const InputField = ({
       )}
     </div>
   )
+}
+
+InputField.propTypes = {
+  label: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  error: PropTypes.object,
+  className: PropTypes.string,
+  type: PropTypes.string
 }
 
 InputField.defaultProps = {
