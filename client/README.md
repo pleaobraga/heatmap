@@ -1,191 +1,136 @@
-# React Scaffold
+# Frontend
 
-This is a React based project, which I built from scratch, that helps you to start quickly your own new React Project.
+Este projeto utilizou como base o [**react-scaffold**](https://github.com/pleaobraga/react-scaffold) um projeto open souce criado por mim que seria como um create-react-app, e eu criei todas as configurações do 0(webpack, lint, husk, babel, ...)
 
-It is integrated with the newest libraries such as:
-
-- Redux
-- React Router Dom
-- Jest
-- Enzyme
-- Storybook
-- Babel
-- Webpack
-
-There is a small implementation which can helps you to:
-
-- Improve the architecture of your project
-- Test your project with Jest and Enzyme
-- Increase the performance of your project using dynamic imports
-- See practical examples of the new \***\*React Hooks feature**
-- See some implementation of the new React-redux features like useSelector and useDispatch
-- Document your project with Storybook
-- Improve your code using Prettier and ESlint
-
-# Quick Start
-
-## Installing dependencies
+## Instalando as dependencias
 
 ```
 yarn
 ```
 
-## Starting the project
+## Iniciando o Projeto
 
-To start the project use this command in your terminal and wait for a few seconds and the project will open a new tab in your browser automatically
+Após instalar as dependências utilize o comando abaixo para iniciar a aplicação.
 
 ```
 yarn start
 ```
 
-### Changing default port
+Espere alguns segundos e automaticamente uma aba do seu navegador será iniciada rodando a aplicação
 
-The default port is 8080 but if you want to change it to the port 3000 use this command
+### Mudar a porta padrão
+
+A porta padrão do projeto é 8080 mas caso deseje mudar, faça como o exemplo abaixo (mudando para a porta 3000)
 
 ```
 yarn start -- --port=3000
 ```
 
-## Build the project
+## Criar a build do projeto
 
 ```
 yarn build
 ```
 
-## Testing the project
+## Testes
 
-There are some commands to test the project
+Os testes automatizados foram escritos usando as bibliotecas **Jest** e **Enzyme**.
 
-### Test all project
+O ambiente utilizado para o desenvolvimento foi o Linux ubunto, dessa forma devido a formatação de caracteres diferentes pode ser que algum teste baseado em caracteres quebre.
+
+### Testar todo o Projeto
 
 ```
 yarn test
 ```
 
-### Watch Tests in the project
+### Conferindo a cobertura de Testes
 
-```
-yarn test:watch
-```
-
-### Update snapshots
-
-```
-yarn test:update
-```
-
-### Check the coverage
+A cobertura de testes escrita foi de **80%**
 
 ```
 yarn test:coverage
 ```
 
-## Using Storybok
+## Documentação de interface
 
-To start the Storybook use the command, it will open a new webpage with Storybook running on port 9000
+Esse Projeto utiliza o **storybook** como ferramenta de documentação dos elementos da UI, e para acessá-lo basta executar:
 
 ```
 yarn storybook
 ```
 
-### Addons
+## Arquitetura do Projeto
 
-The storybook is already configured with some addons like Knobs, Actions, and Info.
+O projeto utiliza uma arquitetura baseada em **Atomic Design** e também utiliza os padrões **SOLID**
 
-### Create a new story
-
-To create a new story, create a file {yourComponent}.stories.js and the storybook is already configurated to load your new story, just stop the storybook process and start it again.
-
-### Create a new story with Redux
-
-You need to add a provider as decorator before the component:
-
-```
-  export default storiesOf('Pages | ContentPage', module)
-  .addDecorator(withProvider)
-  .add('default', () => <ContentPage getContent={getContent} />, {
-    info: { inline: true, header: false }
-  })
-```
-
-## Commits
-
-This project uses Husk.js and everytime you push the code it will run the pre-commit task to check the lint and run all tests, **so the code will only be pushed if it follows the lint rules and does not have any test errors.**
-
-## Project Architecture
-
-The project uses SOLID principles and base page architecture.
-The Source folder is:
+Abaixo podemos ver um pouco sobre a arquitetura do projeto
 
 ```
 src
-  components
-  pages
-  redux
-  utils
-  routes.js
-  index
+ components
+   Atom
+   Molecule
+   Organism
+   UILess
+ pages
+ utils
+ routes.js
+ index
 ```
 
-### Components Pages
-
-The architecture for the components is:
+### Arquitetura dos componentes
 
 ```
-components
-  Component
-    index.js
-    Component.test.js
-    Component.stories.js (when it makes sense)
-    Component.scss (when it makes sense)
-    Component.jsx
+Component
+ index.js
+ Component.test.js
+ Component.stories.js
+ Component.scss
+ Component.jsx
 ```
 
-So each component has its own tests, stories, jsx file and a index to export what is necessary.
+Cada Componente possui seu próprio teste, stories, arquivo jsx, e um index para exportar o que for necessário
 
-This architechture is easy to mantain because to fix a component you can go in its folder and change everithing you need (all components are decoupled).
+O componente tem fácil manutenibilidade devido a essa arquitetura, é facil de se manter pois está tudo centralizado, dentro da mesma pasta, e caso precise mudar algo, é só acessar a pasta do componente e fazer a mudança no arquivo desejado.
 
-### Reducers
+### Helpers
 
-For this example I did not split the reducer from the action creators because this project is too small, but if the project increase it's better split reducer from its actions.
+Na pasta Helpers se encontram os arquivos de constantes e funções gerais utilizadas na aplicação
 
-### Utils
+## Dynamic Import e Performance
 
-In the utils folder I keep some functions and the constants files
+Nos dias atuais precisamos pensar em performance, caso contrário a aplicação poderá não oferecer uma boa experiência para o usuário.
 
-## Dynamic Import and Performance
+Existe nesse projeto um componente chamado **DynamicImport**,integrado ao webpack e ele basicamente importa dinamicamente apenas o bundle que aquela página está usando no momento, sendo assim reduzindo muitas vezes a quantidade de arquivos a serem requisitados pelo browser ao carregar uma tela.
 
-Nowadays we need to pay attention on performace, if we do not take care of it, your project would work but slowly and the customer experience will be very frustrating.
+Ele foi aplicado no arquivo **routes.js**, dessa forma cada pagina que voce importar irá criar um bundle otimizado automaticamente.
 
-I created in ths project a component called **DynamicImport**, it is integrated with the webpack and what it does is basically import the bundle of the content only when the component is rendered in the page.
-
-It was applied in the **routes.js** file, so each page that you import will automaticaly create a new optimal bundle.
-
-This is a example how to use the DynamicImports
+A seguir um exemplo para de como utilizar o **DynamicImport**
 
 ```
 const WelcomePage = () => (
-  <DynamicImport
-    loadComponent={() =>
-      import(/*  webpackChunkName: "welcomePage" */ './pages/WelcomePage')
-    }
-    ErrorComponent={ErrorPage}
-    LoadingComponent={() => <Loading />}
-  />
+ <DynamicImport
+   loadComponent={() =>
+     import(/*  webpackChunkName: "welcomePage" */ './pages/WelcomePage')
+   }
+   ErrorComponent={ErrorPage}
+   LoadingComponent={() => <Loading />}
+ />
 )
 ```
 
-This component is better than **React.lazy** because it can handle 3 diferent situations:
+Esse componente é melhor que o **React.lazy** pois ele possui 3 estados diferentes:
 
 - Loading
 - Error
 - Component
 
-diferent from **React.lazy** and **React.Suspense** which could only handle 2 situations:
+O que difere do **React.lazy** e **React.Suspense** que apenas lidam com apenas 2 estados:
 
 - Loading
 - Component
 
 ## Vendors
 
-The webpack is configurated to create a vendors file with common libraries like react, redux ...
+O webpack esta configurado para criar o arquivo de vendors com as bibliotecas comuns da aplicação como por exemplo react, redux ...

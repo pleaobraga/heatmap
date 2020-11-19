@@ -6,5 +6,10 @@
   "description": "React app heatmap",
   "scripts": {
     "start": "json-server --watch db.json"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.0.0",
+    "yarn": ">=1.22.0"
   }
 }

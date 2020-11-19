@@ -6,7 +6,127 @@
       "number": 2,
       "lat": 37,
       "lng": 48,
-      "residents": 4
+      "residents": 20
+    },
+    {
+      "id": 1,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37.782,
+      "lng": -122.447,
+      "residents": 40
+    },
+    {
+      "id": 2,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37.782,
+      "lng": -122.445,
+      "residents": 50
+    },
+    {
+      "id": 3,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37.782,
+      "lng": -122.443,
+      "residents": 40
+    },
+    {
+      "id": 4,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37.782,
+      "lng": -122.441,
+      "residents": 10
+    },
+    {
+      "id": 5,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37.782,
+      "lng": -122.439,
+      "residents": 10
+    },
+    {
+      "id": 6,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37.782,
+      "lng": -122.437,
+      "residents": 40
+    },
+    {
+      "id": 7,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37.782,
+      "lng": -122.435,
+      "residents": 70
+    },
+    {
+      "id": 7,
+      "cep": "30310130",
+      "number": 2,
+      "lat": 37.784,
+      "lng": -122.437,
+      "residents": 70
+    },
+    {
+      "cep": "0",
+      "number": "58",
+      "lat": 37.781,
+      "lng": 122.437,
+      "residents": 350,
+      "id": 9
+    },
+    {
+      "cep": 784,
+      "number": 41,
+      "lat": 45.78,
+      "lng": 87.741,
+      "residents": 80,
+      "id": 13
+    },
+    {
+      "cep": 784,
+      "number": 41,
+      "lat": 45.78,
+      "lng": 87.741,
+      "residents": 80,
+      "id": 14
+    },
+    {
+      "cep": 784,
+      "number": 41,
+      "lat": 45.78,
+      "lng": 87.741,
+      "residents": 800,
+      "id": 15
+    },
+    {
+      "cep": 30411238,
+      "number": 74,
+      "lat": 66,
+      "lng": 99,
+      "residents": 80,
+      "id": 16
+    },
+    {
+      "cep": 756,
+      "number": 14,
+      "lat": 40,
+      "lng": 40,
+      "residents": 60,
+      "id": 17
+    },
+    {
+      "cep": 23,
+      "number": 23,
+      "lat": 41,
+      "lng": 41,
+      "residents": 80,
+      "id": 18
     }
   ]
 }

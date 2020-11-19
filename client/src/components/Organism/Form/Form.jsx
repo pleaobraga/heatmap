@@ -44,7 +44,7 @@ const Form = ({ formData, postAPI, onSuccess, className, title }) => {
       .catch(() => {
         setPostMessage({
           type: 'error',
-          value: 'Houve um erro ao salvar os dados'
+          value: 'Não foi possivel salvar os dados'
         })
         setIsPosting(false)
       })
