@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import React from 'react'
 import { GoogleMap, useJsApiLoader, HeatmapLayer } from '@react-google-maps/api'
-import { Loading } from '../Loading'
-import { TypeMessage } from '../TypeMessage'
+import { Loading } from '../../Atom/Loading'
+import { TypeMessage } from '../../Atom/TypeMessage'
 
 const Heatmap = ({ data, heightAttribute }) => {
   const mapContainerStyle = {

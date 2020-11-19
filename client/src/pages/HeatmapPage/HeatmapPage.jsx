@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Form } from '../../components/Form'
-import { Heatmap } from '../../components/Heatmap'
-import { LinkButton } from '../../components/LinkButton'
+import { Form } from '../../components/Organism/Form'
+import { Heatmap } from '../../components/Organism/Heatmap'
+import { LinkButton } from '../../components/Atom/LinkButton'
 import { postResidenceAPI } from '../../api/residency'
 import {
   getResidencyAction,
@@ -10,7 +10,7 @@ import {
   selectResidencyError
 } from '../../redux/Residency'
 import { formData } from './formHelper'
-import { TypeMessage } from '../../components/TypeMessage'
+import { TypeMessage } from '../../components/Atom/TypeMessage'
 import './HeatmapPage.scss'
 
 const HeatmapPage = () => {

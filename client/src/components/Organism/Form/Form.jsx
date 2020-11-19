@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { map, reduce } from 'lodash'
-import { InputField } from '../InputField'
-import { validateFormField, hasFormError } from '../../utils/formValidation'
-import { Loading } from '../Loading'
-import { TypeMessage } from '../TypeMessage'
+import { InputField } from '../../Molecule/InputField'
+import { validateFormField, hasFormError } from '../../../utils/formValidation'
+import { Loading } from '../../Atom/Loading'
+import { TypeMessage } from '../../Atom/TypeMessage'
 import './Form.scss'
 
 const Form = ({ formData, postAPI, onSuccess, className }) => {
