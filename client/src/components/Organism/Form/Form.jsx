@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { map, reduce } from 'lodash'
 import { InputField } from '../../Molecule/InputField'
 import { validateFormField, hasFormError } from '../../../utils/formValidation'
@@ -96,6 +97,13 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
       </button>
     </form>
   )
+}
+
+Form.propTypes = {
+  formData: PropTypes.object.isRequired,
+  postAPI: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func,
+  className: PropTypes.string
 }
 
 Form.defaulProps = {
