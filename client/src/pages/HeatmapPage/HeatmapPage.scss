@@ -43,7 +43,7 @@
     }
 
     &--map {
-      height: calc(100vh - 6rem -100px);
+      height: calc(100vh - 20rem);
       width: 100%;
       @include respond(tab-port) {
         height: calc(70vh - 6rem);
