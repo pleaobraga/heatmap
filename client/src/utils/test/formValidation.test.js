@@ -1,8 +1,10 @@
 import {
   validationType,
   formValidations,
-  validateFormField
+  validateFormField,
+  hasFormError
 } from '../formValidation'
+import { formData } from '../testsHelper'
 
 describe('formValifdations', () => {
   describe('formValidations', () => {
@@ -240,6 +242,38 @@ describe('formValifdations', () => {
       ]
 
       expect(validateFormField('res', validations)).toEqual({})
+    })
+  })
+
+  describe('hasFormError', () => {
+    describe('handle error', () => {
+      it('should return an error', () => {
+        const setValues = jest.fn()
+        const hasErrors = hasFormError(formData, setValues)
+        expect(hasErrors).toBe(true)
+      })
+
+      it('should call the setValues func', () => {
+        const setValues = jest.fn()
+        hasFormError(formData, setValues)
+        expect(setValues.mock.calls.length).toBe(1)
+      })
+    })
+
+    it('should return no error', () => {
+      const formData = {
+        name: {
+          name: 'name',
+          label: 'Nome',
+          value: 'test',
+          type: 'text',
+          validations: [{ name: validationType.REQUIRED }],
+          error: {}
+        }
+      }
+      const setValues = jest.fn()
+      const hasErrors = hasFormError(formData, setValues)
+      expect(hasErrors).toBe(false)
     })
   })
 })
