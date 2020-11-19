@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { map, reduce } from 'lodash'
 import { InputField } from '../InputField'
 import { validateFormField, hasFormError } from '../../utils/formValidation'
+import './Form.scss'
 
 const Form = ({ formData, postAPI, onSuccess, className }) => {
   const [formValues, setFormValues] = useState(formData)
@@ -71,7 +72,12 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
           <InputField key={key} {...value} onChange={onChange} />
         ))}
       </div>
-      <button className="form__submit-btn" disabled={isPosting} type="submit">
+      <button
+        id="submit"
+        className="form__submit-btn"
+        disabled={isPosting}
+        type="submit"
+      >
         submit
       </button>
       {postMessage.value !== '' && (

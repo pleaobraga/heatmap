@@ -1,0 +1,13 @@
+@import '../../styles/mixins';
+
+.form {
+  &__title {
+    margin-bottom: 2rem;
+    font-size: 2.3rem;
+
+    @include respond(tab-port) {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+  }
+}
