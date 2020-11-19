@@ -1,7 +1,6 @@
 import { initialResidencyReducer, mockStore } from '../../__mocks__/reduxMock'
 import {
   types,
-  getResidencyAction,
   getResidencyError,
   getResidencyStart,
   getResidencySuccess
