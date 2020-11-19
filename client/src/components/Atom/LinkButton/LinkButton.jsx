@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './LinkButton.scss'
 
-const LinkButton = ({ handleCLick, href, className, text }) => {
+const LinkButton = ({ handleClick, href, className, text }) => {
   return (
     <a
       className={`link-button  ${className}`}
       href={href}
-      onClick={handleCLick}
+      onClick={handleClick}
     >
       {text}
     </a>
@@ -18,7 +18,7 @@ LinkButton.propTypes = {
   text: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   className: PropTypes.string,
-  handleCLick: PropTypes.func
+  handleClick: PropTypes.func
 }
 
 LinkButton.defaultProps = {
