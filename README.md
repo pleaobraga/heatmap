@@ -59,7 +59,7 @@ yarn start
 
 Espere alguns segundos e automaticamente uma aba do seu navegador será iniciada rodando a aplicação
 
-Para maiores informações a respeito da parte de front-end clique aqui
+Para maiores informações a respeito da parte de front-end [clique aqui](https://github.com/pleaobraga/heatmap/client)
 
 ## A solução do problema
 
