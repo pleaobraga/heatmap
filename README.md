@@ -69,6 +69,8 @@ Utilizando o **react-scaffold** como base foi-se pensado em uma forma de criar u
 
 Os componentes foram pensados utilizando a arquitetura **Atomic Design** e Principios **SOLID** e utilizando boas práticas de **Clean Code**, tendo em mente que a aplicação pode crescer e fazendo os componentes serem reutilizáveis
 
+No campo cep não foi colocado mascara pois a ideia seria poder utilizar o "CEP" ou numero de identificação equivalente de qualquer partde do mundo.
+
 Após cada sumbissão de dados para o servidor, caso não ocorra problemas, a aplicação faz uma nova requisição para pegar os dados atualizados e atualiza o mapa.
 
 Para a solução do problema proposto foi utilizado o mapa do google para a visualização do mapa de calor.

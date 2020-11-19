@@ -127,6 +127,14 @@
       "lng": 41,
       "residents": 80,
       "id": 18
+    },
+    {
+      "cep": 30411238,
+      "number": 319,
+      "lat": 41,
+      "lng": 45,
+      "residents": 500,
+      "id": 19
     }
   ]
 }
