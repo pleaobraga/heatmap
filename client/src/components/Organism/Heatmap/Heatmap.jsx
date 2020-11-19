@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { GoogleMap, useJsApiLoader, HeatmapLayer } from '@react-google-maps/api'
 import { Loading } from '../../Atom/Loading'
 import { TypeMessage } from '../../Atom/TypeMessage'
@@ -47,6 +48,16 @@ const Heatmap = ({ data, heightAttribute }) => {
   }
 
   return isLoaded ? renderMap() : <Loading />
+}
+
+Heatmap.propTypes = {
+  heightAttribute: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired
+}
+
+Heatmap.defaultProps = {
+  data: [],
+  weight: 'weight'
 }
 
 export default Heatmap
