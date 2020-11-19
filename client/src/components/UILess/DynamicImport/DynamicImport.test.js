@@ -5,13 +5,13 @@ import DynamicImport from './DynamicImport'
 
 const a = () => <div id="content">test</div>
 
-const request = data => {
-  return new Promise(resolve => {
+const request = (data) => {
+  return new Promise((resolve) => {
     data ? resolve({ default: a }) : resolve({ default: null })
   })
 }
 
-describe.only('DynamicImport', () => {
+describe('DynamicImport', () => {
   it('render proprely', () => {
     const dynamicImport = mount(
       <DynamicImport loadComponent={() => request('test')} />

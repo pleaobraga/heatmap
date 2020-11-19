@@ -6,7 +6,7 @@ import {
   getResidencySuccess
 } from '../ResidencyActions'
 
-describe.only('ResidencyActions', () => {
+describe('ResidencyActions', () => {
   it('should dispatch getResidencyStart', () => {
     const payload = { type: types.GET_RESIDENCY_DATA }
     const store = mockStore(initialResidencyReducer)
