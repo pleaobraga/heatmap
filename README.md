@@ -69,6 +69,8 @@ Utilizando o **react-scaffold** como base foi-se pensado em uma forma de criar u
 
 Os componentes foram pensados utilizando a arquitetura **Atomic Design** e Principios **SOLID** e utilizando boas práticas de **Clean Code**, tendo em mente que a aplicação pode crescer e fazendo os componentes serem reutilizáveis
 
+Após cada sumbissão de dados para o servidor, caso não ocorra problemas, a aplicação faz uma nova requisição para pegar os dados atualizados e atualiza o mapa.
+
 Para a solução do problema proposto foi utilizado o mapa do google para a visualização do mapa de calor.
 
 Foi utilizado Redux na aplicação mais para mostrar conhecimento em Redux, pois devido a complexidade do problema não seria necessário utilizar o mesmo.
@@ -80,6 +82,8 @@ Foram escritos testes unitarios com cobertura de 80% utilizando jest e enzyme.
 o arquivo .env só foi comitado por motivos de facilitar a correção do teste, assim que o mesmo for corrigido eu deletarei essa chave da minha google cloud e não cometerei mais esse arquivo.
 
 Para mostrar conhecimentos foram utilizados o mínimo de bibliotecas possível, caso a aplicação fosse comercial provavelmente usaria as seguintes bibliotecas para me ajudar Formik e yup para o formulário e material ui para o visual
+
+O Formulario não é limpo após submter os dados para facilitar a o preenchimento do mesmo novamente.
 
 ## Melhorias
 

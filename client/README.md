@@ -68,26 +68,27 @@ Abaixo podemos ver um pouco sobre a arquitetura do projeto
 
 ```
 src
- components
-   Atom
-   Molecule
-   Organism
-   UILess
- pages
- utils
- routes.js
- index
+  api
+  components
+    Atom
+    Molecule
+    Organism
+    UILess
+  pages
+  utils
+  routes.js
+  index
 ```
 
 ### Arquitetura dos componentes
 
 ```
 Component
- index.js
- Component.test.js
- Component.stories.js
- Component.scss
- Component.jsx
+  index.js
+  Component.test.js
+  Component.stories.js
+  Component.scss
+  Component.jsx
 ```
 
 Cada Componente possui seu próprio teste, stories, arquivo jsx, e um index para exportar o que for necessário
@@ -96,7 +97,7 @@ O componente tem fácil manutenibilidade devido a essa arquitetura, é facil de 
 
 ### Helpers
 
-Na pasta Helpers se encontram os arquivos de constantes e funções gerais utilizadas na aplicação
+Na pasta Helpers se encontram os arquivos de funções gerais utilizadas na aplicação facilitando assim no reaproveitamento de código
 
 ## Dynamic Import e Performance
 
