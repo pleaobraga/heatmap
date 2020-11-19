@@ -73,7 +73,7 @@ const HeatmapPage = () => {
             <LinkButton
               className="page-heatmap__form-button"
               href="/#submit"
-              handleCLick={toggleShowForm}
+              handleClick={toggleShowForm}
               text={showForm ? 'Esconder Formulário' : 'Adicionar Dados'}
             />
           )}
