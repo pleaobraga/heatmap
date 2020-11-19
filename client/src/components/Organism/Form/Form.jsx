@@ -7,7 +7,7 @@ import { Loading } from '../../Atom/Loading'
 import { TypeMessage } from '../../Atom/TypeMessage'
 import './Form.scss'
 
-const Form = ({ formData, postAPI, onSuccess, className }) => {
+const Form = ({ formData, postAPI, onSuccess, className, title }) => {
   const [formValues, setFormValues] = useState(formData)
   const [isPosting, setIsPosting] = useState(false)
   const [postMessage, setPostMessage] = useState({ type: '', value: '' })
@@ -74,7 +74,7 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
 
   return (
     <form className={`form ${className}`} onSubmit={onSubmit}>
-      <h2 className="form__title">Cadastrar nova residencia</h2>
+      {title !== '' && <h2 className="form__title">{title}</h2>}
       {postMessage.value !== '' && (
         <TypeMessage
           className="form__msg"
@@ -103,12 +103,14 @@ Form.propTypes = {
   formData: PropTypes.object.isRequired,
   postAPI: PropTypes.func.isRequired,
   onSuccess: PropTypes.func,
-  className: PropTypes.string
+  className: PropTypes.string,
+  title: PropTypes.string
 }
 
 Form.defaulProps = {
   formData: {},
-  className: ''
+  className: '',
+  title: ''
 }
 
 export default Form

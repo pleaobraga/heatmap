@@ -48,6 +48,7 @@ const HeatmapPage = () => {
     if ((isPortTab && showForm) || !isPortTab) {
       return (
         <Form
+          title="Cadastrar nova residencia"
           formData={formData}
           postAPI={postResidenceAPI}
           onSuccess={getResidency}
