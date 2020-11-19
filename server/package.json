@@ -1,0 +1,10 @@
+{
+  "name": "heatmap",
+  "version": "1.0.0",
+  "author": "pleaobraga",
+  "license": "ISC",
+  "description": "React app heatmap",
+  "scripts": {
+    "start": "json-server --watch db.json"
+  }
+}
