@@ -78,7 +78,7 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
         disabled={isPosting}
         type="submit"
       >
-        submit
+        Enviar
       </button>
       {postMessage.value !== '' && (
         <p className={`form__${postMessage.type}-msg`}>{postMessage.value}</p>
