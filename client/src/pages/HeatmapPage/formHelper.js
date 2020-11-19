@@ -5,7 +5,7 @@ export const formData = {
     name: 'cep',
     label: 'CEP',
     value: '',
-    type: 'text',
+    type: 'number',
     validations: [
       { name: validationType.REQUIRED },
       { name: validationType.NUMBER }
@@ -40,7 +40,7 @@ export const formData = {
     name: 'lng',
     label: 'Longitude',
     value: '',
-    type: 'text',
+    type: 'number',
     validations: [
       { name: validationType.REQUIRED },
       { name: validationType.MAX, value: 180 },

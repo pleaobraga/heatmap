@@ -41,7 +41,7 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
       .catch(() => {
         setPostMessage({
           type: 'error',
-          value: 'Houve um erro ao salvar os dados '
+          value: 'Houve um erro ao salvar os dados'
         })
         setIsPosting(false)
       })
@@ -49,8 +49,13 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
 
   const onChange = (e) => {
     e.preventDefault()
+    if (postMessage.type !== '') {
+      setPostMessage({ ...postMessage, value: '' })
+    }
 
-    const { name, value } = e.target
+    const { name, value, type } = e.target
+
+    const newValue = type === 'number' ? e.target.valueAsNumber : value
 
     const error = validateFormField(value, formValues[name].validations)
 
@@ -58,7 +63,7 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
       ...formValues,
       [name]: {
         ...formValues[name],
-        value,
+        value: newValue,
         error
       }
     })
@@ -81,7 +86,9 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
         Enviar
       </button>
       {postMessage.value !== '' && (
-        <p className={`form__${postMessage.type}-msg`}>{postMessage.value}</p>
+        <p className={`form__msg form__msg--${postMessage.type}`}>
+          {postMessage.value}
+        </p>
       )}
     </form>
   )

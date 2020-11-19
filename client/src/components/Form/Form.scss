@@ -24,4 +24,17 @@
     border: 1px solid black;
     border-radius: 5px;
   }
+
+  &__msg {
+    margin-top: 2rem;
+    font-size: 2rem;
+
+    &--success {
+      color: green;
+    }
+
+    &--error {
+      color: red;
+    }
+  }
 }
