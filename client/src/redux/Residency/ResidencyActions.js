@@ -28,5 +28,7 @@ export const getResidencyAction = () => (dispatch) => {
       dispatch(getResidencySuccess(response.data))
       return response.data
     })
-    .catch((error) => getResidencyError(error))
+    .catch(() => {
+      dispatch(getResidencyError('Ocorreu um erro ao acessar os dados salvos'))
+    })
 }

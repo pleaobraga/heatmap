@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import React from 'react'
 import { GoogleMap, useJsApiLoader, HeatmapLayer } from '@react-google-maps/api'
+import { Loading } from '../Loading'
+import { TypeMessage } from '../TypeMessage'
 
 const Heatmap = ({ data, heightAttribute }) => {
   const mapContainerStyle = {
@@ -41,10 +43,10 @@ const Heatmap = ({ data, heightAttribute }) => {
   }
 
   if (loadError) {
-    return <div>Map cannot be loaded right now, sorry.</div>
+    return <TypeMessage text="Não foi possivel carregar o mapa" />
   }
 
-  return isLoaded ? renderMap() : <div>Carregando</div>
+  return isLoaded ? renderMap() : <Loading />
 }
 
 export default Heatmap

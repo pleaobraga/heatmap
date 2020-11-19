@@ -2,7 +2,7 @@ import { types } from './ResidencyActions'
 const initialState = {
   data: [],
   isFetching: false,
-  error: {}
+  error: ''
 }
 
 const residency = (state = initialState, action) => {
@@ -15,7 +15,7 @@ const residency = (state = initialState, action) => {
         ...state,
         data: action.data,
         isFetching: false,
-        errorContent: {}
+        error: ''
       }
 
     case types.GET_RESIDENCY_ERROR:

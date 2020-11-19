@@ -4,8 +4,13 @@ import { Form } from '../../components/Form'
 import { Heatmap } from '../../components/Heatmap'
 import { LinkButton } from '../../components/LinkButton'
 import { postResidenceAPI } from '../../api/residency'
-import { getResidencyAction, selectAllResidency } from '../../redux/Residency'
+import {
+  getResidencyAction,
+  selectAllResidency,
+  selectResidencyError
+} from '../../redux/Residency'
 import { formData } from './formHelper'
+import { TypeMessage } from '../../components/TypeMessage'
 import './HeatmapPage.scss'
 
 const HeatmapPage = () => {
@@ -13,6 +18,7 @@ const HeatmapPage = () => {
   const [isPortTab, setIsPortTab] = useState(window.innerWidth <= 900)
   const dispatch = useDispatch()
   const residency = useSelector(selectAllResidency)
+  const residencyError = useSelector(selectResidencyError)
 
   const getResidency = useCallback(() => dispatch(getResidencyAction()), [
     dispatch
@@ -54,6 +60,13 @@ const HeatmapPage = () => {
   return (
     <main className="page page-heatmap">
       <h1 className="page-heatmap__title">Mapa de Calor</h1>
+      {residencyError !== '' && (
+        <TypeMessage
+          className="page-heatmap__message"
+          type="error"
+          text={residencyError}
+        />
+      )}
       <div className="page-heatmap__container">
         <section className="page-heatmap__section page-heatmap__section--form">
           {isPortTab && (

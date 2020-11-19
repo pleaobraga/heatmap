@@ -1,3 +1,3 @@
 export { getResidencyAction } from './ResidencyActions'
-export { selectAllResidency } from './ResidencySelector'
+export { selectAllResidency, selectResidencyError } from './ResidencySelector'
 export { default } from './ResidencyReducer'

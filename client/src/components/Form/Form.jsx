@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { map, reduce } from 'lodash'
 import { InputField } from '../InputField'
 import { validateFormField, hasFormError } from '../../utils/formValidation'
+import { Loading } from '../Loading'
+import { TypeMessage } from '../TypeMessage'
 import './Form.scss'
 
 const Form = ({ formData, postAPI, onSuccess, className }) => {
@@ -72,6 +74,13 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
   return (
     <form className={`form ${className}`} onSubmit={onSubmit}>
       <h2 className="form__title">Cadastrar nova residencia</h2>
+      {postMessage.value !== '' && (
+        <TypeMessage
+          className="form__msg"
+          type={postMessage.type}
+          text={postMessage.value}
+        />
+      )}
       <div className="form__fields">
         {map(formValues, (value, key) => (
           <InputField key={key} {...value} onChange={onChange} />
@@ -83,13 +92,8 @@ const Form = ({ formData, postAPI, onSuccess, className }) => {
         disabled={isPosting}
         type="submit"
       >
-        Enviar
+        {isPosting ? <Loading className="btn--loader" /> : 'Enviar'}
       </button>
-      {postMessage.value !== '' && (
-        <p className={`form__msg form__msg--${postMessage.type}`}>
-          {postMessage.value}
-        </p>
-      )}
     </form>
   )
 }
